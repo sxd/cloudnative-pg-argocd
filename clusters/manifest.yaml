@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudnative-pg-clusters
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: cnpg-samples
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: samples/
+    repoURL: https://github.com/sxd/cloudnative-pg-argocd.git
+    targetRevision: main
+    kustomize:
+      namespace: cnpg-samples
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
