@@ -17,7 +17,7 @@ spec:
     targetRevision: main
     directory:
       recurse: false
-      include: 'cnpg-1.26.1.yaml'
+      include: 'cnpg-1.27.0.yaml'
   syncPolicy:
     automated:
       prune: true
